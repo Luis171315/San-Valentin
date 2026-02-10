@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>💙 San Valentín 💙</title>
+<title>San Valentín 💙</title>
 
 <style>
 body {
@@ -17,11 +17,11 @@ body {
 }
 
 .card {
-  background: white;
+  background: #ffffff;
   padding: 25px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  max-width: 350px;
+  max-width: 360px;
 }
 
 img {
@@ -40,58 +40,56 @@ button {
 }
 
 #yes {
-  background: #ff4d6d;
+  background: #06402B;
   color: white;
 }
 
 #no {
-  background: #ccc;
+  background: #cccccc;
 }
 </style>
 </head>
 
 <body>
 
-<audio id="musica" loop>
-  <source src="amor.mp3" type="audio/mpeg">
-</audio>
-
 <div class="card" id="screen1">
   <img src="foto.jpg" alt="Nosotros 💙">
   <h2>💘 ¿Quieres ser mi San Valentín? 💘</h2>
-  <button id="yes" onclick="yes()">Sí 💙</button>
-  <button id="no" onclick="no()">No 😅</button>
+  <button id="yes" onclick="sayYes()">Sí 💙</button>
+  <button id="no" onclick="sayNo()">No 😅</button>
 </div>
 
 <div class="card" id="screen2" style="display:none;">
   <img src="foto.jpg" alt="Siempre nosotros 💙">
+  <h2>🎉 ¡Felicidades! 🎉</h2>
   <p>Nos vemos en:</p>
-  <strong>Nos vamos para Chitré</strong><br>
+  <strong>Nos vamos para Chitré 💙</strong><br>
   <strong>14 de febrero</strong><br>
-  <strong>💙 Mi bravita 💙</strong>
+  <strong>Mi bravita 💙</strong>
   <h3 style="margin-top:15px;">Te amo 💕</h3>
 </div>
+
+<audio id="music" src="amor.m4a" loop></audio>
 
 <script>
 let size = 1;
 
-function no() {
+function sayNo() {
   size += 0.3;
   document.getElementById("yes").style.transform = `scale(${size})`;
 }
 
-function yes() {
+function sayYes() {
+  const audio = document.getElementById("music");
+  audio.volume = 0.6;
+  audio.play();
+
   document.getElementById("screen1").style.display = "none";
   document.getElementById("screen2").style.display = "block";
 }
-
-// Activar música al primer toque (por celulares)
-document.addEventListener("click", () => {
-  const audio = document.getElementById("musica");
-  audio.volume = 0.6;
-  audio.play();
-});
 </script>
 
 </body>
 </html>
+
+
