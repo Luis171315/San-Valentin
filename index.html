@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>💙 San Valentín 💙</title>
+
+<style>
+body {
+  background: linear-gradient(135deg, #06402B, #003055);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  max-width: 350px;
+}
+
+img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: #ccc;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+  <source src="amor.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card" id="screen1">
+  <img src="foto.jpg" alt="Nosotros 💙">
+  <h2>💘 ¿Quieres ser mi San Valentín? 💘</h2>
+  <button id="yes" onclick="yes()">Sí 💙</button>
+  <button id="no" onclick="no()">No 😅</button>
+</div>
+
+<div class="card" id="screen2" style="display:none;">
+  <img src="foto.jpg" alt="Siempre nosotros 💙">
+  <p>Nos vemos en:</p>
+  <strong>Nos vamos para Chitré</strong><br>
+  <strong>14 de febrero</strong><br>
+  <strong>💙 Mi bravita 💙</strong>
+  <h3 style="margin-top:15px;">Te amo 💕</h3>
+</div>
+
+<script>
+let size = 1;
+
+function no() {
+  size += 0.3;
+  document.getElementById("yes").style.transform = `scale(${size})`;
+}
+
+function yes() {
+  document.getElementById("screen1").style.display = "none";
+  document.getElementById("screen2").style.display = "block";
+}
+
+// Activar música al primer toque (por celulares)
+document.addEventListener("click", () => {
+  const audio = document.getElementById("musica");
+  audio.volume = 0.6;
+  audio.play();
+});
+</script>
+
+</body>
+</html>
